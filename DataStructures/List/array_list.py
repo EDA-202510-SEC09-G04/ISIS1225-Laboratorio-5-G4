@@ -161,3 +161,14 @@ def is_empty(my_list):
         return True
     else:
         return False
+    
+    
+def default_sort_criteria(element_1, element_2):
+
+   is_sorted = False
+   if element_1 < element_2:
+      is_sorted = True
+   return is_sorted    
+
+    
+    
