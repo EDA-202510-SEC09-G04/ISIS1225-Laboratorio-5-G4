@@ -171,4 +171,12 @@ def default_sort_criteria(element_1, element_2):
    return is_sorted    
 
     
-    
+def selection_sort(my_list, default_sort_criteria):
+    n = size(my_list)
+    for i in range(n):
+        min_idx = i
+        for j in range(i + 1, n):
+            if default_sort_criteria(my_list['elements'][j], my_list['elements'][min_idx]):
+                min_idx = j
+        my_list['elements'][i], my_list['elements'][min_idx] = my_list['elements'][min_idx], my_list['elements'][i]
+    return my_list
