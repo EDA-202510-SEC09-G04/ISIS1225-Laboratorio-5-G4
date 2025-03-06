@@ -224,3 +224,32 @@ def sub_list(my_list, pos_i, num_elements):
     sublist['last'] = node_2
         
     return sublist
+
+def default_sort_criteria(element_1, element_2):
+
+   is_sorted = False
+   if element_1 < element_2:
+      is_sorted = True
+   return is_sorted   
+
+def selection_sort(my_list, compare_function):
+    if my_list['first'] is None:
+        return
+    
+    current = my_list['first']
+    
+    while current:
+        min_node = current
+        next_node = current['next']
+        
+        while next_node:
+            if compare_function(next_node['info'], min_node['info']):
+                min_node = next_node
+            next_node = next_node['next']
+            
+        if current != min_node:
+            current['info'], min_node['info'] = min_node['info'], current['info']
+            
+        current = current['next']
+    
+    return my_list
