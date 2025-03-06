@@ -161,3 +161,30 @@ def is_empty(my_list):
         return True
     else:
         return False
+
+
+
+
+
+# Algoritmos de ordenamiento 
+
+def default_sort_criteria(element1,element2):
+
+    if  element1 < element2:
+
+        return True
+    
+    else:
+
+        return False
+
+def insertion_sort(my_list, sort_crit):
+
+
+
+    
+    pass
+
+
+
+
