@@ -180,23 +180,23 @@ def default_sort_criteria_ascendente(element_1, element_2):
 def shell_sort(lista, sort_criteria):
     elementos = lista["elements"]
     n = lista["size"]
-    gap = n // 2  # Iniciamos con la mitad del tamaño
+    gap = n // 2  
 
     while gap > 0:
         for i in range(gap, n):
             temp = elementos[i]
             j = i
 
-            # Mover elementos más grandes hacia la derecha
+            
             while j >= gap and sort_criteria(elementos[j - gap], temp):
                 elementos[j] = elementos[j - gap]
                 j -= gap
             
-            elementos[j] = temp  # Insertar el valor en su posición correcta
+            elementos[j] = temp  
 
-        gap //= 2  # Reducir el intervalo
+        gap //= 2  
 
-    lista["elements"] = elementos  # Asegurar que la lista mantiene su estructura
+    lista["elements"] = elementos  
     return lista
 
 
