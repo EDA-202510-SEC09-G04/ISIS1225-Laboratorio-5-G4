@@ -180,10 +180,32 @@ def default_sort_criteria(element1,element2):
 
 def insertion_sort(my_list, sort_crit):
 
+    elementos = my_list['elements']
+    size = size(my_list)
+    
+    for i in range(1,size):
+        
+        el = elementos[i]
+        j = i - 1
+        
+        while j >= 0 and sort_crit(el,elementos[j]):
+            
+            elementos[j+1] = elementos[j]
+            j -= 1
+            
+        
+        elementos[j+1] = el
+        
 
+
+
+
+        
+        
+        
 
     
-    pass
+    
 
 
 
