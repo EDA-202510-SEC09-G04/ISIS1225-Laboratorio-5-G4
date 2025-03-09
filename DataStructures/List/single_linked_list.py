@@ -199,11 +199,16 @@ def exchange(my_list, pos_1, pos_2):
     if pos_1 == pos_2:
         return my_list
 
-    node_1 = get_element(my_list,pos_1)
-    node_2 = get_element(my_list,pos_2)
+    node_1 = my_list['first']
+    for _ in range(pos_1):
+        node_1 = node_1['next']
+    
+    node_2 = my_list['first'] 
+    for _ in range(pos_2):
+        node_2 = node_2['next']
+        
 
     node_1['info'], node_2['info'] = node_2['info'], node_1['info']
-
     return my_list
 
 def sub_list(my_list, pos_i, num_elements):

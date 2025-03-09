@@ -112,7 +112,7 @@ def load_books_tags(catalog):
     """
     Carga la información que asocia tags con libros.
     """
-    bookstagsfile = None  # TODO: completar la ruta del archivo de BOOKS_TAGS
+    bookstagsfile =  data_dir + '/book_tags.csv'
     input_file = csv.DictReader(open(bookstagsfile, encoding='utf-8'))
     for booktag in input_file:
         add_book_tag(catalog, booktag)
@@ -188,6 +188,11 @@ def select_sort_algorithm(algo_opt):
     # opcion 2: Insertion Sort
     # TODO: completar la opcion de Insertion Sort
 
+    if algo_opt == 2:
+        sort_algorithm = 2
+        algo_msg = 'Seleccionó la configuración - Selection Sort'
+        
+         
     # opcion 3: Shell Sort
     # TODO: completar la opcion de Shell Sort
 

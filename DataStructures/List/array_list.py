@@ -181,9 +181,9 @@ def default_sort_criteria(element1,element2):
 def insertion_sort(my_list, sort_crit):
 
     elementos = my_list['elements']
-    size = size(my_list)
+    tamanio = size(my_list)
     
-    for i in range(1,size):
+    for i in range(1,tamanio):
         
         el = elementos[i]
         j = i - 1
