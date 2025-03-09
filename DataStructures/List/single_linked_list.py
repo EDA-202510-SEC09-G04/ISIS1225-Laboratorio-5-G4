@@ -245,22 +245,25 @@ def default_sort_criteria (element1, element2):
 def insertion_sort(my_list,sort_criteria):
     
     tamanio = size(my_list)
-    i = 0 
-    next = my_list['first']['info']
     
-    for i in range(1,tamanio):
+    
+    
+    if tamanio != 0 :
+        
+  
+     for i in range(1,tamanio):
         
         element = get_element(my_list,i)
         
         j = i - 1
         
-        while j >= 0 and sort_criteria(element,next):
+        while j >= 0 and sort_criteria(element,get_element(my_list,j)):
             
             
-            exchange(j+1,j)
+            exchange(my_list,j+1,j)
             j -= 1
             
-        insert_element(my_list,element, j+1)
+        change_info(my_list, j + 1, element)
         
         
     return my_list
