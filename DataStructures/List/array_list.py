@@ -195,7 +195,9 @@ def insertion_sort(my_list, sort_crit):
             
         
         elementos[j+1] = el
-        
+
+    
+    return my_list
 
 
 

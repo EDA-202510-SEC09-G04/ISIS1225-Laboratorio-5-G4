@@ -224,3 +224,58 @@ def sub_list(my_list, pos_i, num_elements):
     sublist['last'] = node_2
         
     return sublist
+
+
+
+
+def default_sort_criteria (element1, element2):
+    
+    
+    
+    if  element1 < element2:
+
+        return True
+    
+    else:
+
+        return False
+    
+    
+
+def insertion_sort(my_list,sort_criteria):
+    
+    tamanio = size(my_list)
+    i = 0 
+    next = my_list['first']['info']
+    
+    for i in range(1,tamanio):
+        
+        element = get_element(my_list,i)
+        
+        j = i - 1
+        
+        while j >= 0 and sort_criteria(element,next):
+            
+            
+            exchange(j+1,j)
+            j -= 1
+            
+        insert_element(my_list,element, j+1)
+        
+        
+    return my_list
+            
+            
+            
+            
+        
+         
+            
+            
+           
+        
+        
+        
+        
+    
+
