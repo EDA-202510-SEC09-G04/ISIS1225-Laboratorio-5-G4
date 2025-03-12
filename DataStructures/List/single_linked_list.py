@@ -231,3 +231,24 @@ def default_sort_criteria(element_1, element_2):
    if element_1 < element_2:
       is_sorted = True
    return is_sorted   
+
+def shell_sort(my_list, cmp_function):
+
+    n = size(my_list)
+    gap = n // 2  
+
+    while gap > 0:
+        for i in range(gap, n):
+            temp_value = get_element(my_list, i)  
+            j = i
+
+ 
+            while j >= gap and cmp_function(get_element(my_list, j - gap), temp_value) > 0:
+                change_info(my_list, j, get_element(my_list, j - gap))  
+                j -= gap
+
+            change_info(my_list, j, temp_value)  
+
+        gap //= 2  
+
+
