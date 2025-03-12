@@ -230,30 +230,6 @@ def sub_list(my_list, pos_i, num_elements):
         
     return sublist
 
-def default_sort_criteria(element_1, element_2):
-
-   is_sorted = False
-   if element_1 < element_2:
-      is_sorted = True
-   return is_sorted   
-
-
-
-
-
-def default_sort_criteria (element1, element2):
-    
-    
-    
-    if  element1 < element2:
-
-        return True
-    
-    else:
-
-        return False
-    
-    
 
 def insertion_sort(my_list,sort_criteria):
     
