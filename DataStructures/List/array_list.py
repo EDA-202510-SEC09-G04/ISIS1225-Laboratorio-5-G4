@@ -170,6 +170,23 @@ def default_sort_criteria(element_1, element_2):
       is_sorted = True
    return is_sorted    
 
+def shell_sort(lista, sort_criteria):
+    elementos = lista["elements"]
+    n = lista["size"]
+    gap = n // 2  
+
+    while gap > 0:
+        for i in range(gap, n):
+            temp = elementos[i]
+            j = i
+
+            
+            while j >= gap and sort_criteria(elementos[j - gap], temp):
+                elementos[j] = elementos[j - gap]
+                j -= gap
+        is_sorted = True
+    return is_sorted    
+
     
 def selection_sort(my_list, default_sort_criteria):
     n = size(my_list)
