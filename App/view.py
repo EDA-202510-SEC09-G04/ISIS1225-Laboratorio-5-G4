@@ -192,7 +192,11 @@ def main():
         elif int(inputs[0]) == 1:
             print("Cargando información de los archivos ....")
             bk, at, tg, bktg = load_data(control)
-            #TODO: imprimir la cantidad de libros, autores, géneros y asociaciones de géneros a libros cargados
+            print(f'Total de libros cargados {logic.book_size(control)}')
+            print(f'Total de autores cargados {logic.author_size(control)}')
+            print(f'Total de generos cargados {logic.tag_size(control)}')
+            print(f'Total de asociaciones de géneros a libros cargados {logic.book_tag_size(control)}')
+           
 
         elif int(inputs[0]) == 2:
             number = input("Ingrese el id del libro que desea buscar: ")

@@ -194,13 +194,26 @@ def select_sort_algorithm(algo_opt):
         
          
     # opcion 3: Shell Sort
-    # TODO: completar la opcion de Shell Sort
+    
+    
+    if algo_opt == 3:
+        
+        sort_algorithm = 3
+        algo_msg = 'Seleccionó la configuración - Shell Sort'
 
     # opcion 4: Merge Sort
-    # TODO: completar la opcion de Merge Sort
+    
+    if algo_opt == 4:
+        
+        sort_algorithm = 4
+        algo_msg = 'Seleccionó la configuración - Merge Sort'
 
     # opcion 5: Quick Sort
-    # TODO: completar la opcion de Quick Sort
+    
+    if algo_opt == 5:
+        
+        sort_algorithm = 4
+        algo_msg = 'Seleccionó la configuración - Quick Sort'
 
     else:
         algo_msg = "No seleccionó una configuración válida"
@@ -346,7 +359,7 @@ def sort_books(catalog):
     sorted_books = catalog["book_sublist"]
     start_time = get_time()
 
-    # TODO: completar las opciones para selection_sort, insertion_sort, shell_sort, merge_sort y quick_sort
+   
 
     if sort_algorithm == 1:
         sorted_books_s = data_structure.selection_sort(sorted_books,eval_ratings)
