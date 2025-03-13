@@ -364,6 +364,54 @@ def merge(my_list, left_half, right_half, sort_criteria):
     my_list['size'] = size(left_half) + size(right_half)
 
 
+def quick_sort(my_list, sort_criteria):
+    if size(my_list) <= 1:
+        return my_list
+    
+    pivot = get_element(my_list, size(my_list) - 1)
+    left = {'first': None, 'last': None, 'size': 0}
+    right = {'first': None, 'last': None, 'size': 0}
+    equal = {'first': None, 'last': None, 'size': 0}
+    
+    current = my_list['first']
+    while current is not None:
+        if sort_criteria(current['info'], pivot):
+            append(left, current['info'])
+        elif sort_criteria(pivot, current['info']):
+            append(right, current['info'])
+        else:
+            append(equal, current['info'])
+        current = current['next']
+    
+    quick_sort(left, sort_criteria)
+    quick_sort(right, sort_criteria)
+    
+    return concat_listas(left, equal, right)
+
+
+def append(my_list, value):
+    new_node = {'info': value, 'next': None}
+    if my_list['first'] is None:
+        my_list['first'] = my_list['last'] = new_node
+    else:
+        my_list['last']['next'] = new_node
+        my_list['last'] = new_node
+    my_list['size'] += 1
+
+
+def concat_listas(left, equal, right):
+    result = {'first': None, 'last': None, 'size': 0}
+    
+    for lst in [left, equal, right]:
+        if lst['first'] is not None:
+            if result['first'] is None:
+                result['first'] = lst['first']
+            else:
+                result['last']['next'] = lst['first']
+            result['last'] = lst['last']
+            result['size'] += lst['size']
+    
+    return result
 
 
 

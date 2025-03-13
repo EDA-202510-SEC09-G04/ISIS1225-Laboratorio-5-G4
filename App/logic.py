@@ -31,7 +31,7 @@ import time
 from DataStructures.List import array_list as al
 from DataStructures.List import single_linked_list as lt
 
-data_dir = os.path.dirname(os.path.realpath('__file__')) + '/Data/GoodReads'
+data_dir = os.path.dirname(os.path.realpath('__file__')) + '/Data/'
 
 sort_algorithm = None
 data_structure = None

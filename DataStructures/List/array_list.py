@@ -47,7 +47,7 @@ def add_first(my_list,element):
 
     return my_list
 
-def add_last(my_list,element):
+""" def add_last(my_list,element):
     if my_list['size'] == 0:
         my_list['elements'] = [None] * 1
     
@@ -63,7 +63,15 @@ def add_last(my_list,element):
     my_list['elements'][my_list['size']] = element 
     my_list['size'] += 1 
     
-    return my_list
+    return my_list """
+
+def add_last(my_list, element):
+    if 'elements' not in my_list:
+        my_list['elements'] = []
+        my_list['size'] = 0
+    
+    my_list['elements'].append(element)
+    my_list['size'] += 1
 
 def first_element(my_list):
     if size(my_list) == 0:
@@ -278,7 +286,27 @@ def merge_sort(my_list, sort_crit):
             
     return my_list
 
-
+def quick_sort(my_list, sort_criteria):
+    if size(my_list) <= 1:
+        return my_list
+    
+    pivot = my_list['elements'][size(my_list) - 1] 
+    left = {'elements': []}
+    right = {'elements': []}
+    equal = {'elements': []}
+    
+    for element in my_list['elements']:
+        if sort_criteria(element, pivot):
+            left['elements'].append(element)
+        elif sort_criteria(pivot, element):
+            right['elements'].append(element)
+        else:
+            equal['elements'].append(element)
+    
+    sorted_left = quick_sort({'elements': left['elements']}, sort_criteria)
+    sorted_right = quick_sort({'elements': right['elements']}, sort_criteria)
+    
+    return {'elements': sorted_left['elements'] + equal['elements'] + sorted_right['elements']}
 
 
         
