@@ -163,19 +163,12 @@ def is_empty(my_list):
         return False
     
     
-def default_sort_criteria_descendente(element_1, element_2):
+def default_sort_criteria(element_1, element_2):
 
    is_sorted = False
    if element_1 < element_2:
       is_sorted = True
    return is_sorted    
-
-def default_sort_criteria_ascendente(element_1, element_2):
-
-   is_sorted = False
-   if element_1 > element_2:
-      is_sorted = True
-   return is_sorted 
 
 def shell_sort(lista, sort_criteria):
     elementos = lista["elements"]

@@ -232,7 +232,7 @@ def default_sort_criteria(element_1, element_2):
       is_sorted = True
    return is_sorted   
 
-def shell_sort(my_list, cmp_function):
+def shell_sort(my_list, sort_criteria):
 
     n = size(my_list)
     gap = n // 2  
@@ -243,7 +243,7 @@ def shell_sort(my_list, cmp_function):
             j = i
 
  
-            while j >= gap and cmp_function(get_element(my_list, j - gap), temp_value) > 0:
+            while j >= gap and sort_criteria(get_element(my_list, j - gap), temp_value) > 0:
                 change_info(my_list, j, get_element(my_list, j - gap))  
                 j -= gap
 
