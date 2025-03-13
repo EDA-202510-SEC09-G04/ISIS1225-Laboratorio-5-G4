@@ -217,7 +217,7 @@ def main():
             algo_opt = input(algo_str)
             algo_opt = int(algo_opt)
             algo_msg = logic.select_sort_algorithm(algo_opt)
-            print(algo_msg[1])
+            print(algo_msg)
             
         elif int(inputs[0]) == 6:
             size = input("Indique tamaño de la muestra: ")

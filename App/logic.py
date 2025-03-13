@@ -215,8 +215,6 @@ def select_sort_algorithm(algo_opt):
         sort_algorithm = 4
         algo_msg = 'Seleccionó la configuración - Quick Sort'
 
-    else:
-        algo_msg = "No seleccionó una configuración válida"
 
     # respuesta final: algoritmo de ordenamiento y texto de configuracion
     return sort_algorithm, algo_msg
