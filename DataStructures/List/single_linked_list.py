@@ -257,17 +257,74 @@ def insertion_sort(my_list,sort_criteria):
         
     return my_list
             
-            
-            
-            
-        
-         
-            
-            
-           
-        
-        
-        
-        
+
+
+def merge_sort(my_list, sort_criteria):
     
+    
+    if size(my_list) > 1:
+        mid = size(my_list) // 2
+        left_half = sub_list(my_list, 0, mid)
+        right_half = sub_list(my_list, mid, size(my_list) - mid)
+
+        merge_sort(left_half, sort_criteria)
+        merge_sort(right_half, sort_criteria)
+
+        merge(my_list, left_half, right_half, sort_criteria)
+
+    return my_list
+
+
+
+def merge(my_list, left_half, right_half, sort_criteria):
+   
+    left_node = left_half['first']
+    right_node = right_half['first']
+    current = None
+
+    if sort_criteria(left_node['info'], right_node['info']):
+        my_list['first'] = left_node
+        left_node = left_node['next']
+    else:
+        my_list['first'] = right_node
+        right_node = right_node['next']
+
+    current = my_list['first']
+
+    while left_node is not None and right_node is not None:
+        if sort_criteria(left_node['info'], right_node['info']):
+            current['next'] = left_node
+            left_node = left_node['next']
+        else:
+            current['next'] = right_node
+            right_node = right_node['next']
+        current = current['next']
+
+    while left_node is not None:
+        current['next'] = left_node
+        left_node = left_node['next']
+        current = current['next']
+
+    while right_node is not None:
+        current['next'] = right_node
+        right_node = right_node['next']
+        current = current['next']
+
+    my_list['last'] = current
+    my_list['size'] = size(left_half) + size(right_half)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
