@@ -23,7 +23,7 @@ def get_element(my_list, pos):
     if node is None:
         raise IndexError('list index out of range')
 
-    return node["info"]
+    return node
 
 
 
@@ -199,11 +199,16 @@ def exchange(my_list, pos_1, pos_2):
     if pos_1 == pos_2:
         return my_list
 
-    node_1 = get_element(my_list,pos_1)
-    node_2 = get_element(my_list,pos_2)
+    node_1 = my_list['first']
+    for _ in range(pos_1):
+        node_1 = node_1['next']
+    
+    node_2 = my_list['first'] 
+    for _ in range(pos_2):
+        node_2 = node_2['next']
+        
 
     node_1['info'], node_2['info'] = node_2['info'], node_1['info']
-
     return my_list
 
 def sub_list(my_list, pos_i, num_elements):
@@ -224,6 +229,11 @@ def sub_list(my_list, pos_i, num_elements):
     sublist['last'] = node_2
         
     return sublist
+
+
+
+
+#Algoritmos de ordenamiento
 
 def default_sort_criteria(element_1, element_2):
 
@@ -253,3 +263,100 @@ def selection_sort(my_list, compare_function):
         current = current['next']
     
     return my_list
+
+
+def insertion_sort(my_list,sort_criteria):
+    
+    tamanio = size(my_list)
+
+    if tamanio != 0 :
+        
+  
+     for i in range(1,tamanio):
+        
+        element = get_element(my_list,i)
+        
+        j = i - 1
+        
+        while j >= 0 and sort_criteria(element,get_element(my_list,j)):
+            
+            
+            exchange(my_list,j+1,j)
+            j -= 1
+            
+        change_info(my_list, j + 1, element)
+        
+        
+    return my_list
+            
+
+
+def merge_sort(my_list, sort_criteria):
+    
+    
+    if size(my_list) > 1:
+        mid = size(my_list) // 2
+        left_half = sub_list(my_list, 0, mid)
+        right_half = sub_list(my_list, mid, size(my_list) - mid)
+
+        merge_sort(left_half, sort_criteria)
+        merge_sort(right_half, sort_criteria)
+
+        merge(my_list, left_half, right_half, sort_criteria)
+
+    return my_list
+
+
+
+def merge(my_list, left_half, right_half, sort_criteria):
+   
+    left_node = left_half['first']
+    right_node = right_half['first']
+    current = None
+
+    if sort_criteria(left_node['info'], right_node['info']):
+        my_list['first'] = left_node
+        left_node = left_node['next']
+    else:
+        my_list['first'] = right_node
+        right_node = right_node['next']
+
+    current = my_list['first']
+
+    while left_node is not None and right_node is not None:
+        if sort_criteria(left_node['info'], right_node['info']):
+            current['next'] = left_node
+            left_node = left_node['next']
+        else:
+            current['next'] = right_node
+            right_node = right_node['next']
+        current = current['next']
+
+    while left_node is not None:
+        current['next'] = left_node
+        left_node = left_node['next']
+        current = current['next']
+
+    while right_node is not None:
+        current['next'] = right_node
+        right_node = right_node['next']
+        current = current['next']
+
+    my_list['last'] = current
+    my_list['size'] = size(left_half) + size(right_half)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

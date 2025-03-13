@@ -180,3 +180,97 @@ def selection_sort(my_list, default_sort_criteria):
                 min_idx = j
         my_list['elements'][i], my_list['elements'][min_idx] = my_list['elements'][min_idx], my_list['elements'][i]
     return my_list
+    
+
+
+
+# Algoritmos de ordenamiento 
+
+
+
+def insertion_sort(my_list, sort_crit):
+
+    elementos = my_list['elements']
+    tamanio = size(my_list)
+    
+    for i in range(1,tamanio):
+        
+        el = elementos[i]
+        j = i - 1
+        
+        while j >= 0 and sort_crit(el,elementos[j]):
+            
+            elementos[j+1] = elementos[j]
+            j -= 1
+            
+        
+        elementos[j+1] = el
+
+    
+    return my_list
+
+
+
+
+
+def merge_sort(my_list, sort_crit):
+    
+    
+    if size(my_list) > 1:
+        
+        mid = size(my_list) //2
+        left_half = sub_list(my_list,0,mid)
+        right_half = sub_list(my_list,mid,size(my_list) -mid)
+        
+        merge_sort(left_half, sort_crit)
+        merge_sort(right_half, sort_crit)
+        
+        
+        i = j = k = 0
+        
+        left_elements = left_half['elements']
+        right_elements = right_half['elements']
+        elements = my_list['elements']
+        
+        
+        while i < size(left_half) and j < size(right_half):
+            
+            if sort_crit(left_elements[i], right_elements[j]):
+                
+                elements[k] = left_elements[i]
+                i += 1
+                
+            else:
+                
+                elements[k] = right_elements[j]
+                j += 1
+                
+            k += 1
+            
+            
+        while i < size(left_half):
+            
+            elements[k] = left_elements[i]
+            i += 1
+            k += 1
+            
+        while j < size(right_half):
+            elements[k] = right_elements[j]
+            j += 1
+            k += 1
+            
+    return my_list
+
+
+
+
+        
+        
+        
+
+    
+    
+
+
+
+

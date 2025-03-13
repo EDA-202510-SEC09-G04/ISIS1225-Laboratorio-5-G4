@@ -36,3 +36,7 @@ def new_double_node(element):
             'prev': None
             }
     return node
+
+
+
+
