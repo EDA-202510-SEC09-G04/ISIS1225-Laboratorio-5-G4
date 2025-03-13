@@ -161,6 +161,8 @@ algo_str = """Seleccione el algoritmo de ordenamiento recursivo:
 1. Selection Sort
 2. insertion Sort
 3. shell Sort
+4. merge
+5. quick
 """
                  
 exit_opt_lt = ("s", "S", "1", True, "true", "True", "si", "Si", "SI")
