@@ -23,7 +23,7 @@ def get_element(my_list, pos):
     if node is None:
         raise IndexError('list index out of range')
 
-    return node["info"]
+    return node
 
 
 
@@ -229,6 +229,18 @@ def sub_list(my_list, pos_i, num_elements):
     sublist['last'] = node_2
         
     return sublist
+
+
+
+
+#Algoritmos de ordenamiento
+
+def default_sort_criteria(element_1, element_2):
+
+   is_sorted = False
+   if element_1 < element_2:
+      is_sorted = True
+   return is_sorted    
 
 
 def insertion_sort(my_list,sort_criteria):
